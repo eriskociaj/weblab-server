@@ -30,3 +30,20 @@ function addProduct(name, price) {
             console.log("POST response:", data);
         });
 }
+
+function updateProduct(id, name, price) {
+    fetch(`/api/products/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: name,
+            price: price
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log("PUT response:", data);
+        });
+}

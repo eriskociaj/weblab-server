@@ -49,6 +49,19 @@ app.post("/api/products", express.json(), (req, res) => {
     });
 });
 
+app.put("/api/products/:id", express.json(), (req, res) => {
+    const id = Number(req.params.id);
+    const product = products.find(product => product.id === id);
+
+    product.name = req.body.name;
+    product.price = req.body.price;
+
+    res.json({
+        message: "Product updated successfully",
+        product: product
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
