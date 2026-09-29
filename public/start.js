@@ -1,3 +1,4 @@
+// Assignment 2: Fetch all products or one product by ID.
 function fetchProducts() {
     fetch("/api/products")
         .then(response => response.json())
@@ -14,6 +15,7 @@ function fetchProductsByID(id) {
         });
 }
 
+// Assignment 3: Send a POST request to add a product.
 function addProduct(name, price) {
     fetch("/api/products", {
         method: "POST",
@@ -31,6 +33,7 @@ function addProduct(name, price) {
         });
 }
 
+// Assignment 4: Send a PUT request to update a product.
 function updateProduct(id, name, price) {
     fetch(`/api/products/${id}`, {
         method: "PUT",
@@ -48,6 +51,7 @@ function updateProduct(id, name, price) {
         });
 }
 
+// Assignment 5: Send a DELETE request to remove a product.
 function deleteProduct(id) {
     fetch(`/api/products/${id}`, {
         method: "DELETE"

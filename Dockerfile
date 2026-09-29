@@ -1,3 +1,5 @@
+# Assignment 6 - Build and run the Node.js server in Docker.
+
 # Pull a image with node already integrated
 FROM node:20-alpine
 

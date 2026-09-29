@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 
+// Assignment 1: Set up the Express server and static files.
 app.use("/", express.static("public"));
 
 app.get("/welcome", (req, res) => {
@@ -14,6 +15,7 @@ let products = [
     { id: 2, name: "Phone", price: 500 }
 ];
 
+// Assignment 2: GET all products or one product by ID.
 app.get("/api/products", (req, res) => {
     res.json(products);
 });
@@ -26,6 +28,7 @@ app.get("/api/products/:id", (req, res) => {
     res.json(product);
 });
 
+// Assignment 3: POST a new product with name and price.
 app.post("/api/products", express.json(), (req, res) => {
     const { name, price } = req.body;
 
@@ -49,6 +52,7 @@ app.post("/api/products", express.json(), (req, res) => {
     });
 });
 
+// Assignment 4: PUT updates a product by ID.
 app.put("/api/products/:id", express.json(), (req, res) => {
     const id = Number(req.params.id);
     const product = products.find(product => product.id === id);
@@ -62,6 +66,7 @@ app.put("/api/products/:id", express.json(), (req, res) => {
     });
 });
 
+// Assignment 5: DELETE removes a product by ID.
 app.delete("/api/products/:id", (req, res) => {
     const id = Number(req.params.id);
 
