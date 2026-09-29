@@ -14,5 +14,19 @@ function fetchProductsByID(id) {
         });
 }
 
-fetchProducts();
-fetchProductsByID(1);
+function addProduct(name, price) {
+    fetch("/api/products", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: name,
+            price: price
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log("POST response:", data);
+        });
+}
