@@ -62,6 +62,19 @@ app.put("/api/products/:id", express.json(), (req, res) => {
     });
 });
 
+app.delete("/api/products/:id", (req, res) => {
+    const id = Number(req.params.id);
+
+    const productIndex = products.findIndex(product => product.id === id);
+
+    const deletedProduct = products.splice(productIndex, 1);
+
+    res.json({
+        message: "Product deleted successfully",
+        product: deletedProduct[0]
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });

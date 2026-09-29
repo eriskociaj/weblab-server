@@ -47,3 +47,13 @@ function updateProduct(id, name, price) {
             console.log("PUT response:", data);
         });
 }
+
+function deleteProduct(id) {
+    fetch(`/api/products/${id}`, {
+        method: "DELETE"
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log("DELETE response:", data);
+        });
+}
