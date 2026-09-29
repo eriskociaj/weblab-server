@@ -9,6 +9,23 @@ app.get("/welcome", (req, res) => {
     res.send("Welcome to the REST API!");
 });
 
+let products = [
+    { id: 1, name: "Laptop", price: 1000 },
+    { id: 2, name: "Phone", price: 500 }
+];
+
+app.get("/api/products", (req, res) => {
+    res.json(products);
+});
+
+app.get("/api/products/:id", (req, res) => {
+    const id = Number(req.params.id);
+
+    const product = products.find(product => product.id === id);
+
+    res.json(product);
+});
+
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
